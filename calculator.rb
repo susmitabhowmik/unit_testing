@@ -24,6 +24,22 @@ class Calculator
   def power(number, exponent)
     return number ** exponent
   end
+
+  def remainder(dividend, divisor)
+    return dividend % divisor
+  end
+
+  def cube(number)
+    return number ** 3
+  end
+
+  def abs (number)
+    if number > 0
+      return number
+    else 
+      return number * -1
+    end
+  end
 end
 
 RSpec.describe Calculator do
@@ -72,6 +88,30 @@ RSpec.describe Calculator do
       calculator = Calculator.new
       result = calculator.power(2,3)
       expect(result).to eq(8)
+    end
+  end
+
+  describe '#remainder' do
+    it 'should return the remainder of a number after division' do
+      calculator = Calculator.new
+      result = calculator.remainder(10,4)
+      expect(result).to eq(2)
+    end
+  end
+
+  describe '#cube' do
+    it 'should cube a number and return the result' do
+      calculator = Calculator.new
+      result = calculator.cube(3)
+      expect(result).to eq(27)
+    end
+  end
+
+  describe '#abs' do
+    it 'should return the absolute value of a number' do
+      calculator = Calculator.new
+      result = calculator.abs(-9)
+      expect(result).to eq(9)
     end
   end
 end
